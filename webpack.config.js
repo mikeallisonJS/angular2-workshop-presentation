@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 var BrowserSync = require('browser-sync-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var modRewrite = require('connect-modrewrite');
 
 module.exports = {
 	entry: './src/app.component.ts',
@@ -27,6 +29,7 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.optimize.OccurenceOrderPlugin(),
+		new ExtractTextPlugin('[name].[hash].css'),
 		new HtmlWebpackPlugin({
 			template: './src/index.html',
 			inject: 'body'
@@ -34,7 +37,10 @@ module.exports = {
 		new BrowserSync({
 			host: 'localhost',
 			port: 3000,
-			server: { baseDir: ['public'] }
+			server: { baseDir: ['public'] },
+			middleware: [
+				modRewrite(['^[^\\.]*$ /index.html [L]'])
+			]
 		})
 	],
 	module: {
