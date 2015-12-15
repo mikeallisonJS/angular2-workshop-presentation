@@ -29,6 +29,9 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.optimize.OccurenceOrderPlugin(),
+		new webpack.ProvidePlugin({
+			Zone: "zone.js"
+		}),
 		new ExtractTextPlugin('[name].[hash].css'),
 		new HtmlWebpackPlugin({
 			template: './src/index.html',
@@ -37,7 +40,7 @@ module.exports = {
 		new BrowserSync({
 			host: 'localhost',
 			port: 3000,
-			server: { baseDir: ['public'] },
+			server: { baseDir: ['public', './'] },
 			middleware: [
 				modRewrite(['^[^\\.]*$ /index.html [L]'])
 			]
