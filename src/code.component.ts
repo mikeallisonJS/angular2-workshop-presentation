@@ -5,8 +5,8 @@ import {Component} from "angular2/core";
 	template: `
 		<div class="jumbotron">
 			<h3 class="display-3">Code</h3>
-			<p class="lead"><pre>git clone https://github.com/mikeallisonJS/angular2-workshop.git</pre></p>
-			<p class="lead"><pre>npm install</pre></p>
+			<p class="lead">git clone https://github.com/mikeallisonJS/angular2-workshop.git</p>
+			<p class="lead">npm install</p>
 		</div>
 	`
 })
