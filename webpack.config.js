@@ -3,6 +3,7 @@ var BrowserSync = require('browser-sync-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var modRewrite = require('connect-modrewrite');
+var path = require('path');
 
 module.exports = {
 	entry: './src/app.component.ts',
@@ -66,6 +67,9 @@ module.exports = {
 				// Reference: https://github.com/webpack/style-loader
 				// Use style-loader in development for hot-loading
 				loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss')
+			}, {
+				test: /\.scss$/,
+				loaders: ['style', 'css', `sass?sourceMap&sourceMapContents&includePaths[]=${path.join(__dirname, "node_modules")}`]
 			}
 		]
 	}

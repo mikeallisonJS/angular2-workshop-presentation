@@ -1,4 +1,5 @@
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './app.scss';
+//import '../node_modules/bootstrap/scss/bootstrap.scss';
 import 'reflect-metadata';
 import 'zone.js';
 import {bootstrap} from 'angular2/bootstrap'
@@ -23,8 +24,8 @@ const routes = [
 	selector: 'app',
 	template: `
 		<router-outlet></router-outlet>
-		<button class="btn" (click)="prev()">Prev</button>
-		<button class="btn btn-default" (click)="next()">{{routeName()}}</button>
+		<button class="btn btn-primary" (click)="prev()" *ngIf="currentRoute > 1">Prev</button>
+		<button class="btn btn-primary" (click)="next()" *ngIf="currentRoute < 5">{{routeName()}}</button>
 		`,
 	directives: [ROUTER_DIRECTIVES]
 })
@@ -39,9 +40,7 @@ class App {
 				found = true;
 			}
 		}
-		console.log(this.currentRoute);
 	}
-
 	currentRoute = 1;
 	prev() {
 		if (this.currentRoute > 1) {
