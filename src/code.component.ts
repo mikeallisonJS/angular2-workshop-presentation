@@ -1,7 +1,7 @@
 import {Component} from "angular2/core";
 
 @Component({
-	selector: 'code',
+	selector: 'project',
 	template: `
 		<div class="jumbotron">
 			<h3 class="display-3">Code</h3>

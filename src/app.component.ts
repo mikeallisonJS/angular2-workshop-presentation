@@ -17,7 +17,7 @@ const routes = [
 	{path: '/me', component: MeComponent, name: 'Me'},
 	{path: '/why', component: WhyComponent, name: 'Why'},
 	{path: '/different', component: DifferentComponent, name: 'Different'},
-	{path: '/code', component: CodeComponent, name: 'Code'}
+	{path: '/project', component: CodeComponent, name: 'Project'}
 ];
 
 @Component({
@@ -54,7 +54,7 @@ class App {
 	}
 	routeName() {
 		if (this.currentRoute + 1 < routes.length) {
-			return routes[this.currentRoute + 1].name || '';
+			return <Route>routes[this.currentRoute + 1].name || '';
 		}
 		return '';
 	}

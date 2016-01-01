@@ -3,10 +3,9 @@ import {Component} from "angular2/core";
 @Component({
 	selector: 'me',
 	template: `
-
 		<div class="jumbotron">
-			<img class="pull-xs-right img-circle" src="/images/me.jpg">
-			<h3 class="display-3">Mike Allison</h3>
+			<img class="center-block img-rounded" src="/images/me.jpg">
+			<h3 class="display-3 text-md-center">Mike Allison</h3>
 			<p class="lead">
 				Professionally: Developer since 2000 (Mainly Javascript/C# Full-Stack in Education/Medical)<br />
 				Really: Developing since I got my hands on a Commodore 64 & Apple IIe at the age of 6.<br />

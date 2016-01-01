@@ -4,7 +4,8 @@ import {Component} from "angular2/core";
 	selector: 'different',
 	template: `
 		<div class="jumbotron">
-			<h3 class="display-3">Changes from Angular 1.x</h3>
+			<img class="center-block img-rounded" src="/images/sayno.jpg">
+			<h3 class="display-3 text-md-center">Changes from Angular 1.x</h3>
 			<p class="lead">
 				No hockey stick learning curve<br />
 				NO SCOPE!!!! HOORAY!<br />

@@ -4,8 +4,8 @@ import {Component} from "angular2/core";
 	selector: 'Why',
 	template: `
 		<div class="jumbotron">
-			<img class="pull-xs-right" src="/images/beefcake.jpg" style="width:275px">
-			<h3 class="display-3">Why Angular 2?</h3>
+			<img class="center-block img-rounded" src="/images/beefcake.jpg" style="width:275px">
+			<h3 class="display-3 text-md-center">Why Angular 2?</h3>
 			<p class="lead">
 				It's a total framework (build a car, not every component and the factory) <br />
 				It's FAST! (Yep, faster than your framework, probably)<br />
