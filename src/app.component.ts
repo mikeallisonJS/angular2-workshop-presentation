@@ -10,6 +10,7 @@ import MeComponent from "./me.component";
 import WhyComponent from "./why.component";
 import DifferentComponent from './different.component';
 import CodeComponent from "./code.component";
+import ResourcesComponent from "./resources.component";
 
 const routes = [
 	{path: '/', redirectTo: ['Home']},
@@ -17,7 +18,8 @@ const routes = [
 	{path: '/me', component: MeComponent, name: 'Me'},
 	{path: '/why', component: WhyComponent, name: 'Why'},
 	{path: '/different', component: DifferentComponent, name: 'Different'},
-	{path: '/project', component: CodeComponent, name: 'Project'}
+	{path: '/project', component: CodeComponent, name: 'Project'},
+	{path: '/resources', component: ResourcesComponent, name: 'Resources'}
 ];
 
 @Component({
@@ -25,7 +27,7 @@ const routes = [
 	template: `
 		<router-outlet></router-outlet>
 		<button class="btn btn-primary" (click)="prev()" *ngIf="currentRoute > 1">Prev</button>
-		<button class="btn btn-primary" (click)="next()" *ngIf="currentRoute < 5">{{routeName()}}</button>
+		<button class="btn btn-primary" (click)="next()" *ngIf="currentRoute < routeLength - 1">{{routeName()}}</button>
 		`,
 	directives: [ROUTER_DIRECTIVES]
 })
@@ -42,6 +44,7 @@ class App {
 		}
 	}
 	currentRoute = 1;
+	routeLength = routes.length;
 	prev() {
 		if (this.currentRoute > 1) {
 			this.currentRoute--;
