@@ -2,4 +2,6 @@ $jumbotron-bg: #0143A3;
 $body-color: white;
 $brand-primary: #0273D4;
 $link-color: white;
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "bootstrap/scss/bootstrap";
+$fa-font-path: "~font-awesome/fonts";
+@import "font-awesome/scss/font-awesome";

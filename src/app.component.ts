@@ -1,5 +1,4 @@
 import './app.scss';
-//import '../node_modules/bootstrap/scss/bootstrap.scss';
 import 'reflect-metadata';
 import 'zone.js';
 import {bootstrap} from 'angular2/bootstrap'
@@ -25,9 +24,29 @@ const routes = [
 @Component({
 	selector: 'app',
 	template: `
-		<router-outlet></router-outlet>
-		<button class="btn btn-primary" (click)="prev()" *ngIf="currentRoute > 1">Prev</button>
-		<button class="btn btn-primary" (click)="next()" *ngIf="currentRoute < routeLength - 1">{{routeName()}}</button>
+		<div class="jumbotron">
+			<table style="width:100%">
+			<tr>
+				<td style="width: 100px">
+					<a (click)="prev()">
+							<i class="fa fa-4x fa-angle-left"  *ngIf="currentRoute > 1"></i><br />
+							{{prevRouteName()}}
+						</a>
+					</td>
+				<td>
+					<router-outlet></router-outlet>
+				</td>
+				<td style="width: 100px">
+					<a (click)="next()">
+						<i class="fa fa-4x fa-angle-right"  *ngIf="currentRoute < routeLength - 1"></i><br />
+						{{nextRouteName()}}
+					</a>
+				</td>
+			</tr>
+			</table>
+		</div>
+
+
 		`,
 	directives: [ROUTER_DIRECTIVES]
 })
@@ -55,9 +74,15 @@ class App {
 		this.currentRoute++;
 		this.router.navigateByUrl(routes[this.currentRoute].path);
 	}
-	routeName() {
+	nextRouteName() {
 		if (this.currentRoute + 1 < routes.length) {
-			return <Route>routes[this.currentRoute + 1].name || '';
+			return routes[this.currentRoute + 1].name || '';
+		}
+		return '';
+	}
+	prevRouteName() {
+		if (this.currentRoute > 1) {
+			return routes[this.currentRoute - 1].name || '';
 		}
 		return '';
 	}
