@@ -40,7 +40,7 @@ module.exports = {
 		}),
 		new BrowserSync({
 			host: 'localhost',
-			port: 3000,
+			port: 3030,
 			server: { baseDir: ['public', './'] },
 			middleware: [
 				modRewrite(['^[^\\.]*$ /index.html [L]'])
